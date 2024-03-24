@@ -19,7 +19,7 @@ done_delete_channel(struct discord *cogbot,
     /* remove rubberduck role from user */
     discord_remove_guild_member_role(cogbot, primitives->guild_id,
                                      interaction->member->user->id,
-                                     primitives->roles.rubberduck_id, NULL);
+                                     primitives->roles.rubberduck_id, NULL, NULL);
 }
 
 static void
@@ -55,7 +55,7 @@ done_get_channel(struct discord *cogbot,
             NULL);
     }
     else {
-        discord_delete_channel(cogbot, channel->id,
+        discord_delete_channel(cogbot, channel->id, NULL,
                                &(struct discord_ret_channel){
                                    .done = &done_delete_channel,
                                    .fail = &fail_delete_channel,
