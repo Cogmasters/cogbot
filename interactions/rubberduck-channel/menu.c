@@ -160,6 +160,7 @@ react_rubberduck_channel_menu(struct discord *cogbot,
     discord_add_guild_member_role(cogbot, primitives->guild_id,
                                   interaction->member->user->id,
                                   primitives->roles.rubberduck_id,
+                                  NULL,
                                   &(struct discord_ret){
                                       .done = &done_role_add,
                                       .fail = &fail_role_add,

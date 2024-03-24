@@ -32,11 +32,11 @@ react_select_subscriptions_menu(struct discord *cogbot,
     if (is_reset) {
         discord_remove_guild_member_role(
             cogbot, interaction->guild_id, member->user->id,
-            primitives->roles.announcements_id, NULL);
+            primitives->roles.announcements_id, NULL, NULL);
 
         discord_remove_guild_member_role(cogbot, interaction->guild_id,
                                          member->user->id,
-                                         primitives->roles.watcher_id, NULL);
+                                         primitives->roles.watcher_id, NULL, NULL);
 
         params->data->content = "Your subscriptions have been reset";
     }
@@ -45,7 +45,7 @@ react_select_subscriptions_menu(struct discord *cogbot,
 
         for (int i = 0; roles[i] && i < arr_size; ++i) {
             discord_add_guild_member_role(cogbot, interaction->guild_id,
-                                          member->user->id, roles[i], NULL);
+                                          member->user->id, roles[i], NULL, NULL);
         }
 
         params->data->content = "Your subscriptions have been registered";
@@ -83,16 +83,16 @@ react_select_OS(struct discord *cogbot,
     if (is_reset) {
         discord_remove_guild_member_role(cogbot, interaction->guild_id,
                                          member->user->id,
-                                         primitives->roles.linux_id, NULL);
+                                         primitives->roles.linux_id, NULL, NULL);
         discord_remove_guild_member_role(cogbot, interaction->guild_id,
                                          member->user->id,
-                                         primitives->roles.windows_id, NULL);
+                                         primitives->roles.windows_id, NULL, NULL);
         discord_remove_guild_member_role(cogbot, interaction->guild_id,
                                          member->user->id,
-                                         primitives->roles.macos_id, NULL);
+                                         primitives->roles.macos_id, NULL, NULL);
         discord_remove_guild_member_role(cogbot, interaction->guild_id,
                                          member->user->id,
-                                         primitives->roles.bsd_id, NULL);
+                                         primitives->roles.bsd_id, NULL, NULL);
 
         params->data->content = "Your OS choice has been reset";
     }
@@ -101,7 +101,7 @@ react_select_OS(struct discord *cogbot,
 
         for (int i = 0; roles[i] && i < arr_size; ++i) {
             discord_add_guild_member_role(cogbot, interaction->guild_id,
-                                          member->user->id, roles[i], NULL);
+                                          member->user->id, roles[i], NULL, NULL);
         }
 
         params->data->content = "Your OS choice has been set";
